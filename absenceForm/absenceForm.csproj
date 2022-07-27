@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52426B5A-6A1A-4AB2-B1CF-A7E1E1699EA0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>absenceForm</RootNamespace>
+    <AssemblyName>absenceForm</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\Desktop\TDI2\GUNA\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IstaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IstaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="principal\Controls\absenceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="principal\Controls\absenceControl.Designer.cs">
+      <DependentUpon>absenceControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="principal\Controls\AjouterAbsence.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="principal\Controls\AjouterAbsence.Designer.cs">
+      <DependentUpon>AjouterAbsence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="principal\Controls\AjouterUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="principal\Controls\AjouterUser.Designer.cs">
+      <DependentUpon>AjouterUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="principal\Controls\autorisationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="principal\Controls\autorisationControl.Designer.cs">
+      <DependentUpon>autorisationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="principal\Controls\passwordControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="principal\Controls\passwordControl.Designer.cs">
+      <DependentUpon>passwordControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="principal\Homepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="principal\Homepage.Designer.cs">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="principal\Controls\absenceControl.resx">
+      <DependentUpon>absenceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="principal\Controls\AjouterAbsence.resx">
+      <DependentUpon>AjouterAbsence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="principal\Controls\AjouterUser.resx">
+      <DependentUpon>AjouterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="principal\Controls\autorisationControl.resx">
+      <DependentUpon>autorisationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="principal\Controls\passwordControl.resx">
+      <DependentUpon>passwordControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="principal\Homepage.resx">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Entity\DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entity\DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+    <None Include="IstaDataSet.xsc">
+      <DependentUpon>IstaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IstaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IstaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IstaDataSet.xss">
+      <DependentUpon>IstaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-1password-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-1password-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hide-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5919711c2d2accce1615685b7b5128cc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\absenceClass\absenceClass.csproj">
+      <Project>{05e06dbc-48b5-4c57-ab06-f63fa8c8ebcb}</Project>
+      <Name>absenceClass</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-test-account-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-absence-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-change-password-58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-log-out-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-user-male-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-find-user-male-skin-type-7-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-life-cycle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-work-authorisation-96.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

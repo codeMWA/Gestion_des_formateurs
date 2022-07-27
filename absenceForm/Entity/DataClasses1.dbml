@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Ista" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-QV3FUH3\SQLEXPRESS;Initial Catalog=Ista;Integrated Security=True" SettingsObjectName="absenceForm.Properties.Settings" SettingsPropertyName="IstaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.absence" Member="absence">
+    <Type Name="absence">
+      <Column Name="code_abs" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cin" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="heures_absence" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="dateDebut" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="dateFin" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="justification" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="heures_justifiés" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Association Name="formateur_absence" Member="formateur" ThisKey="cin" OtherKey="cin" Type="formateur" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.administrateur" Member="administrateur">
+    <Type Name="administrateur">
+      <Column Name="userA" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="passwordA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.autorisation" Member="autorisation">
+    <Type Name="autorisation">
+      <Column Name="codeAuto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cin" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="cas" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="heures_autorisé" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="dateDebut" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="dateFin" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Association Name="formateur_autorisation" Member="formateur" ThisKey="cin" OtherKey="cin" Type="formateur" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.formateur" Member="formateur">
+    <Type Name="formateur">
+      <Column Name="cin" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="tele" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Association Name="formateur_absence" Member="absence" ThisKey="cin" OtherKey="cin" Type="absence" />
+      <Association Name="formateur_autorisation" Member="autorisation" ThisKey="cin" OtherKey="cin" Type="autorisation" />
+    </Type>
+  </Table>
+</Database>

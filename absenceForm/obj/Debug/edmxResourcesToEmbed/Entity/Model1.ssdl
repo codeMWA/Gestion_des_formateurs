@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IstaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="absence">
+    <Key>
+      <PropertyRef Name="code_abs" />
+    </Key>
+    <Property Name="code_abs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cin" Type="varchar" MaxLength="10" />
+    <Property Name="jours_absence" Type="int" />
+    <Property Name="dateDebut" Type="varchar" MaxLength="10" />
+    <Property Name="dateFin" Type="varchar" MaxLength="10" />
+    <Property Name="justification" Type="varchar" MaxLength="250" />
+    <Property Name="jours_justifiés" Type="int" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Ista.dbo.administrateur' ; en outre, aucune clé primaire valide n'a pu être déduite. Cette table/vue a été exclue. Pour utiliser l'entité, vous devez passer en revue votre schéma, ajouter les clés appropriées et supprimer le commentaire associé.
+        <EntityType Name="administrateur">
+          <Property Name="userA" Type="varchar" MaxLength="30" />
+          <Property Name="passwordA" Type="varchar" MaxLength="30" />
+        </EntityType>-->
+  <EntityType Name="formateur">
+    <Key>
+      <PropertyRef Name="cin" />
+    </Key>
+    <Property Name="cin" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="40" />
+    <Property Name="prenom" Type="varchar" MaxLength="40" />
+    <Property Name="tele" Type="varchar" MaxLength="14" />
+  </EntityType>
+  <Association Name="FK__absence__cin__38996AB5">
+    <End Role="formateur" Type="Self.formateur" Multiplicity="0..1" />
+    <End Role="absence" Type="Self.absence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formateur">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="absence">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IstaModelStoreContainer">
+    <EntitySet Name="absence" EntityType="Self.absence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="formateur" EntityType="Self.formateur" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__absence__cin__38996AB5" Association="Self.FK__absence__cin__38996AB5">
+      <End Role="formateur" EntitySet="formateur" />
+      <End Role="absence" EntitySet="absence" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

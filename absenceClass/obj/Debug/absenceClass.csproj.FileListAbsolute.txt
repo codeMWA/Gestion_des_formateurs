@@ -1,0 +1,7 @@
+C:\Users\hp\source\repos\AbsenceProject\absenceClass\bin\Debug\absenceClass.dll.config
+C:\Users\hp\source\repos\AbsenceProject\absenceClass\bin\Debug\absenceClass.dll
+C:\Users\hp\source\repos\AbsenceProject\absenceClass\bin\Debug\absenceClass.pdb
+C:\Users\hp\source\repos\AbsenceProject\absenceClass\obj\Debug\absenceClass.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\AbsenceProject\absenceClass\obj\Debug\absenceClass.dll
+C:\Users\hp\source\repos\AbsenceProject\absenceClass\obj\Debug\absenceClass.pdb
+C:\Users\hp\source\repos\AbsenceProject\absenceClass\obj\Debug\absenceClass.csproj.AssemblyReference.cache

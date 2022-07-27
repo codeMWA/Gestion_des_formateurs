@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IstaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="absence">
+    <Key>
+      <PropertyRef Name="code_abs" />
+    </Key>
+    <Property Name="code_abs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="jours_absence" Type="Int32" />
+    <Property Name="dateDebut" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="dateFin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="justification" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="jours_justifiés" Type="Int32" />
+    <NavigationProperty Name="formateur" Relationship="Self.FK__absence__cin__38996AB5" FromRole="absence" ToRole="formateur" />
+  </EntityType>
+  <EntityType Name="formateur">
+    <Key>
+      <PropertyRef Name="cin" />
+    </Key>
+    <Property Name="cin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="prenom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="tele" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="absence" Relationship="Self.FK__absence__cin__38996AB5" FromRole="formateur" ToRole="absence" />
+  </EntityType>
+  <Association Name="FK__absence__cin__38996AB5">
+    <End Role="formateur" Type="Self.formateur" Multiplicity="0..1" />
+    <End Role="absence" Type="Self.absence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formateur">
+        <PropertyRef Name="cin" />
+      </Principal>
+      <Dependent Role="absence">
+        <PropertyRef Name="cin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IstaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="absence" EntityType="Self.absence" />
+    <EntitySet Name="formateur" EntityType="Self.formateur" />
+    <AssociationSet Name="FK__absence__cin__38996AB5" Association="Self.FK__absence__cin__38996AB5">
+      <End Role="formateur" EntitySet="formateur" />
+      <End Role="absence" EntitySet="absence" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

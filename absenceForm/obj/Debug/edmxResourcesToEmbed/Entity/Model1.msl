@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IstaModelStoreContainer" CdmEntityContainer="IstaEntities">
+    <EntitySetMapping Name="absence">
+      <EntityTypeMapping TypeName="IstaModel.absence">
+        <MappingFragment StoreEntitySet="absence">
+          <ScalarProperty Name="code_abs" ColumnName="code_abs" />
+          <ScalarProperty Name="cin" ColumnName="cin" />
+          <ScalarProperty Name="jours_absence" ColumnName="jours_absence" />
+          <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+          <ScalarProperty Name="dateFin" ColumnName="dateFin" />
+          <ScalarProperty Name="justification" ColumnName="justification" />
+          <ScalarProperty Name="jours_justifiés" ColumnName="jours_justifiés" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formateur">
+      <EntityTypeMapping TypeName="IstaModel.formateur">
+        <MappingFragment StoreEntitySet="formateur">
+          <ScalarProperty Name="cin" ColumnName="cin" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="tele" ColumnName="tele" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
